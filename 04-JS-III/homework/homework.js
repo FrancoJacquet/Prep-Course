@@ -3,18 +3,29 @@
 function devolverPrimerElemento(array) {
   // Devuelve el primer elemento de un  array (pasado por parametro)
   // Tu código:
+  var r;
+  r = array[0];
+  return r;
 }
 
 
 function devolverUltimoElemento(array) {
   // Devuelve el último elemento de un array
   // Tu código:
+  var r;
+  var len;
+  len = array.length;
+  r = array[len-1];
+  return r;
 }
 
 
 function obtenerLargoDelArray(array) {
   // Devuelve el largo de un array
   // Tu código:
+  var r;
+  r = array.length;
+  return r;
 }
 
 
@@ -23,6 +34,13 @@ function incrementarPorUno(array) {
   // Aumenta cada entero por 1
   // y devuelve el array
   // Tu código:
+  var len;
+  len = array.length;
+  for(var i=0;i<len;i++)
+  {
+    array[i]++;
+  }
+  return array;
 }
 
 
@@ -30,6 +48,8 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
+  array.push(elemento);
+  return array;
 }
 
 
@@ -38,6 +58,8 @@ function agregarItemAlComienzoDelArray(array, elemento) {
   // y devuelve el array
   // Pista: usa el método `.unshift`
   // Tu código:
+  array.unshift(elemento);
+  return array;
 }
 
 
@@ -47,6 +69,15 @@ function dePalabrasAFrase(palabras) {
   // con espacios entre cada palabra
   // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'
   // Tu código:
+  var r;
+  var len;
+  len = palabras.length;
+  r = palabras[0];
+  for(var i = 1;i<len;i++)
+  {
+     r += " " + palabras[i];
+  }
+  return r;
 }
 
 
@@ -54,6 +85,19 @@ function arrayContiene(array, elemento) {
   // Comprueba si el elemento existe dentro de "array"
   // Devuelve "true" si está, o "false" si no está
   // Tu código:
+  var r;
+  var len;
+  r = false;
+  len = array.length;
+  for(var i = 0;i<len;i++)
+  {
+    if(array[i]==elemento)
+    {
+      r = true;
+      break;
+    }
+  }
+  return r;
 }
 
 
@@ -61,6 +105,15 @@ function agregarNumeros(numeros) {
   // "numeros" debe ser un arreglo de enteros (int/integers)
   // Suma todos los enteros y devuelve el valor
   // Tu código:
+  var r;
+  var len;
+  r = 0;
+  len = numeros.length;
+  for(var i = 0;i<len;i++)
+  {
+    r += numeros[i];
+  }
+  return r;
 }
 
 
@@ -68,6 +121,17 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
+  var r;
+  var len;
+  var promedio;
+  r = 0;
+  len = resultadosTest.length;
+  for(var i = 0;i<len;i++)
+  {
+    r+=resultadosTest[i];
+  }
+  promedio = r/(len);
+  return promedio;
 }
 
 
@@ -75,6 +139,27 @@ function numeroMasGrande(numeros) {
   // "numeros" debe ser una matriz de enteros (int/integers)
   // Devuelve el número más grande
   // Tu código:
+  var r;
+  var flag;
+  var len;
+  flag = 0;
+  len = numeros.length;
+  for(var i = 0;i<len;i++)
+  {
+    if(flag==0)
+    {
+      r = numeros[i];
+      flag = 1;
+    }
+    else
+    {
+      if(numeros[i]>r)
+      {
+        r = numeros[i];
+      }
+    }
+  }
+  return r;
 }
 
 
@@ -82,13 +167,50 @@ function multiplicarArgumentos() {
   // Usa la palabra clave `arguments` para multiplicar todos los argumentos y devolver el producto
   // Si no se pasan argumentos devuelve 0. Si se pasa un argumento, simplemente devuélvelo
   // Escribe tu código aquí:
+  var r;
+  var len;
+  var producto;
+  len = arguments.length;
+  producto = 1;
+  if(len == 0)
+  {
+    r = 0;
+  }
+  else
+  {
+    if(len==1)
+    {
+      r = arguments[0];
+    }
+    else
+    {
+      for(var i = 0;i<len;i++)
+      {
+        producto *=arguments[i];
+      } 
+      r = producto;
+    }
+  }
+  
+  return r;
 }
 
 
 function cuentoElementos(arreglo){
   //Realiza una función que retorne la cantidad de los elementos del arreglo cuyo valor es mayor a 18.
   //Escribe tu código aquí
-
+  var r;
+  var len;
+  r = 0;
+  len = arreglo.length;
+  for(var i = 0;i<len;i++)
+  {
+    if(arreglo[i]>18)
+    {
+      r++;
+    }
+  }
+  return r;
 }
 
 
@@ -97,7 +219,13 @@ function diaDeLaSemana(numeroDeDia) {
   //Realiza una función que dado el número del día de la semana, retorne: Es fin de semana
   //si el día corresponde a Sábado o Domingo y “Es dia Laboral” en caso contrario. 
   //Escribe tu código aquí   
-  
+  var r;
+  r = "Es dia Laboral";
+  if(numeroDeDia==7 || numeroDeDia==1)
+  {
+    r = "Es fin de semana";
+  }
+  return r;
 } 
 
 
@@ -105,7 +233,13 @@ function empiezaConNueve(n) {
   //Desarrolle una función que recibe como parámetro un número entero n. Debe retornar true si el entero 
   //inicia con 9 y false en otro caso.
   //Escribe tu código aquí
-  
+  var r;
+  r = true;
+  if(n!=9)
+  {
+    r = false;
+  }
+  return r;
 }
 
 
